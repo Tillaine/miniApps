@@ -1,3 +1,22 @@
 body {
     background-color: aquamarine;
 }
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    border-bottom: .5px;
+
+    padding: 7%;
+    box-shadow: .3px 1px green;
+    margin:.5%;
+    border-radius: 5%;
+}
+
+.formContainer {
+    display: flex;
+    margin-left: 10%;
+
+}
