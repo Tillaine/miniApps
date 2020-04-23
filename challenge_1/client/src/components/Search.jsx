@@ -6,15 +6,38 @@ class Search extends React.Component {
         this.state = {
             term: ''
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit= this.handleSubmit.bind(this)
+        this.clearForm= this.clearForm.bind(this)
 
+    }
+
+    handleChange(e) {
+        if(e){
+
+            this.setState({
+                term: e.target.value
+            })
+            console.log(this.state)
+            e.preventDefault();
+        }
+    }
+    handleSubmit(e) {
+        this.clearForm()
+        this.props.submit(this.state)
+        e.preventDefault();
+    }
+
+    clearForm() {
+        this.setState({term: ''})
     }
 
     render() {
         return (
         <div>
-            <form on onSubmit={this.props.search}>
+            <form onSubmit={this.handleSubmit}>
                 <div className='formContainer'>
-                    <input className='searchInput' value={this.state.term} id='term' placeholder='keyword'></input>
+                    <input onChange={this.handleChange} value={this.state.term || ''} className='searchInput' id='term' placeholder='keyword'></input>
                     <button className='searchBtn'>🔎</button>
                 </div>
             </form>       

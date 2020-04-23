@@ -28,7 +28,7 @@ const formatDate = (date) => {
 }
 
 const formatCategory = (category1, category2) => {
-    if(category1.includes('by') && category2){
+    if(category1 && category1.includes('by') && category2){
         return category2;
     } else {
         return 'Too cool for lables'
