@@ -1,39 +1,73 @@
 import React from 'react'
-import {HorizontalBar} from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+
+
+const options= {
+    legend: false,
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        xAxes: [{
+            display: true,
+            gridLines: {
+                display:true
+            }
+        }],
+        yAxes: [{
+            gridLines: {
+                display:true
+            }   
+        }]
+    }
+  }
 
 
 class Chart extends React.Component {
     constructor (props) {
         super(props)
         this.state= {
-            data: this.props.data
         }
     }
 
-  render() {
 
+    componentDidMount() {
+        
+      }
+
+  render() {
+      console.log(this.state)
     const data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-          {
-            label: 'My First dataset',
-            backgroundColor: 'rgba(255,99,132,0.2)',
-            borderColor: 'rgba(255,99,132,1)',
-            borderWidth: 1,
-            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-            hoverBorderColor: 'rgba(255,99,132,1)',
-            data: this.state.data
-          }
-        ]
-      };
     
+        labels: this.props.dates,
+        datasets: [
+            {
+                label: 'Average Monthly Price in $',
+                type: 'line',
+                backgroundColor: 'rgba(18, 132, 136, 1)',
+                borderColor: 'rgba(18, 132, 136, 1)',
+                borderWidth: 1,
+                maxBarThickness: 8,
+                hoverBackgroundColor: 'rgba(18, 132, 136,0.4)',
+                hoverBorderColor: 'rgba(18, 132, 136 ,1)',
+                data: this.props.values
+            }
+        ]
+       
+    }
     return (
       <div>
-        <h2>Horizontal Bar Example</h2>
-        <HorizontalBar data={data} />
+        <h2>Price of Bitcoin over time in USD</h2>
+        <Line data={data} options={options}/>
       </div>
     );
   }
 };
 
+
+
+
 export default Chart
+
+
+  
+ 
