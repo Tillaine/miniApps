@@ -1,0 +1,16 @@
+body {
+    background-image: url('./dark-bitcoin-scaled.png');
+    background-color: bisque;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: lightgoldenrodyellow;
+}
+
+#coinDesk {
+    background-color: grey;
+    border-radius: 15%;
+    opacity: 90%;
+    width: 15%;
+    text-align: center;
+    float: right;
+}

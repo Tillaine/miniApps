@@ -1,18 +1,18 @@
 import React from 'react'
 import Event from './Event.jsx'
-let id = 0
+
 
 const EventsList = (props) => {
+
     console.log('events from list', props.events)
     return (
         <div>
             <ul>
                 {
-                    props.events.map(event =>  {
-                        id ++
+                    props.events.map((event, i) =>  {
                         return(
                         <li>
-                            <Event event={event} key={id}/>
+                            <Event event={event} key={i}/>
                         </li>)
                     })
                 }
@@ -21,6 +21,12 @@ const EventsList = (props) => {
         </div>
     )
 }
+    
+ 
+
+
+
+
 
 
 export default EventsList
